@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form
+    [formGroup]="registrationForm"
+    (ngSubmit)="onSubmit(registrationForm.value)"
+  >
+    <ion-item lines="full">
+      <ion-label position="floating">First name</ion-label>
+      <ion-input formControlName="fname" type="text"></ion-input>
+    </ion-item>
+    <span
+      class="error ion-padding"
+      *ngIf="isSubmitted && validate.fname.errors?.required"
+    >
+      First name is required.
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Last name</ion-label>
+      <ion-input type="text" formControlName="lname"></ion-input>
+    </ion-item>
+    <span
+      class="error ion-padding"
+      *ngIf="isSubmitted && validate.lname.errors?.required"
+    >
+      Last name is required.
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" formControlName="email"></ion-input>
+    </ion-item>
+    <span
+      class="error ion-padding"
+      *ngIf="isSubmitted && validate.email.errors?.required"
+    >
+      Email is required.
+    </span>
+    <span
+      class="error ion-padding"
+      *ngIf="isSubmitted && validate.email.errors?.pattern"
+    >
+      Please enter valid emailId.
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <span
+      class="error ion-padding"
+      *ngIf="isSubmitted && validate.password.errors?.required"
+    >
+      Password is required.
+    </span>
+    <span
+      class="error ion-padding"
+      *ngIf="isSubmitted && validate.password.errors?.minlength"
+    >
+      Minimum password length should be six.
+    </span>
+    <ion-item lines="full">
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input type="password" formControlName="cpassword"></ion-input>
+    </ion-item>
+    <span
+      class="error ion-padding"
+      *ngIf="validate.cpassword.errors?.confirmPasswordValidator"
+    >
+      Passsword and Confirm Password didn't match.
+    </span>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="danger" expand="block"
+          >Sign Up</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

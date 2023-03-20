@@ -1,0 +1,60 @@
+.divider {
+  display: flex;
+  
+  &:before,
+  &:after {
+    content: "";
+    flex: 1;
+  }
+}
+
+.line {
+  align-items: center;
+  margin: 1em -1em;
+  color: #cccccc;
+  
+  &:before,
+  &:after {
+    height: 1px;
+    margin: 0 1em;
+  }
+} 
+
+.one-line {
+  &:before,
+  &:after {
+     background: #cccccc;
+  }
+}
+
+.auth-form ion-grid,
+.auth-form ion-row {
+  height: 100%;
+  justify-content: center;
+}
+
+.already {
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.main-content{
+  margin: auto;
+}
+
+a.button-native {
+  margin: 0px auto !important;
+  display: block;
+  width: 90%;
+  clear: both;
+  contain: content;
+}
+
+ion-button{
+  margin: 0px  auto !important;
+}
+
+ion-title{
+  text-align: center;
+}
